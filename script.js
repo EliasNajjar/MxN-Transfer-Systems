@@ -196,7 +196,7 @@ function connect(b1, b2, autofill = true) {
 
         for (let i = lowy;i <= upy;++i) { // connect lower to all less than upper
             for (let j = lowx;j <= upx;++j) {
-                connect(lower, buttons[i][j]);
+                connect(lower, buttons[i][j], false);
             }
         }
 

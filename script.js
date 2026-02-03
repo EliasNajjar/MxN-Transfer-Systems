@@ -181,7 +181,7 @@ function connect(b1, b2, autofill = true) {
         for (let i = 0;i < lowLoc;++i) { // connect upper to lower connections
             if (connections[i][lowLoc]) {
                 let y = Math.trunc(i / n);
-                let x = Math.trunc(i % n);
+                let x = i % n;
                 connect(buttons[y][x], upper);
             }
         }
@@ -189,14 +189,14 @@ function connect(b1, b2, autofill = true) {
         for (let i = upLoc + 1;i < numButtons;++i) { // connect lower to upper connections
             if (connections[upLoc][i]) {
                 let y = Math.trunc(i / n);
-                let x = Math.trunc(i % n);
+                let x = i % n;
                 connect(lower, buttons[y][x]);
             }
         }
 
         for (let i = lowy;i <= upy;++i) { // connect lower to all less than upper
             for (let j = lowx;j <= upx;++j) {
-                connect(lower, buttons[i][j], false);
+                connect(lower, buttons[i][j]);
             }
         }
 
